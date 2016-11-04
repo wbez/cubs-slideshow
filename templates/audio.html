@@ -1,0 +1,9 @@
+{% extends '_slide.html' %}
+
+{% block slidecontent %}
+	{% include "_gamestate.html" ignore missing %}
+	<div class="audio">{% include "_soundcite.html" ignore missing %}</div>
+	{% if row.photocredit %}
+	<div class="photo-credit">{{row.photocredit}}{% if row.audiocredit %} | {{row.audiocredit}}{% endif %}</div>
+	{% endif %}
+{% endblock %}

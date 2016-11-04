@@ -1,46 +1,16 @@
 {% extends '_base.html' %}
 
-{% block header_content %}
-<header>
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <h1>{{ COPY.content.project_name|smarty }}</h1>
-                <h2>{{ COPY.content.lorem_ipsum|smarty }}</h2>
-            </div>
-        </div>
-    </div>
-</header>
-{% endblock %}
-
-
 {% block content %}
-<section id="content">
-    <div class="container">
-        <div class="row">
-            <div id="main-content" class="col-md-8">
-
-                <h1>{{ COPY.content.project_name }}</h1>
-
-                <div id="story-meta">
-                    <p class="byline">by <span>{{ COPY.content.byline }}</span></p>
-                    <p class="dateblock">
-                        <span class="date">{{ COPY.content.pubdate }}</span>
-                        <span class="time"> {{ COPY.content.pubtime }}</span>
-                    </p>
-                </div>
-
-                <h2 class="knockout-example">Example COPY list</h2>
-                <dl>
-                    {% for row in COPY.example_list %}
-                    <dt>{{ row.term }}</dt><dd>{{ row.definition }}</dd>
-                    {% endfor %}
-                </dl>
-
-                <h2 class="knockout-example">JST example</h2>
-                <p id="template-example"></p>
-            </div>
-        </div>
+<div class="section">
+    {% for row in COPY.slides %}
+    <div class="slide {% if row.class%}{{ row.class }}{% endif %}" {% if row.image%} style="background-image: url(  
+https://s3.amazonaws.com/wbez-assets/Slideshows/cubs-world-series/images/{{ row.image }})"{% endif %} {% if row.id%} id="{{ row.id }}"{% endif %} {% if row.data%} data-state="{{ row.data }}"{% endif %}>
+        {% include "%s.html" % (row.template) ignore missing %}
     </div>
-</section>
-{% endblock %}
+    {% endfor %}
+</div>
+<div class="controls">
+    <div class="previous"><i class="fa fa-chevron-left"></i></div>
+    <div class="next"><i class="fa fa-chevron-right"></i></div>
+</div>
+{% endblock content%}

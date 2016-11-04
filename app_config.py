@@ -100,7 +100,7 @@ COPY_PATH = 'data/copy.xlsx'
 """
 SHARING
 """
-SHARE_URL = 'http://%s/%s/' % (PRODUCTION_S3_BUCKET, PROJECT_SLUG)
+SHARE_URL = 'http://interactive.wbez.org/photos/cubs-world-series/'
 
 """
 SERVICES

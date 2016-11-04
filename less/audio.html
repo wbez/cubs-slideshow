@@ -1,0 +1,6 @@
+{% extends '_slide.html' %}
+
+{% block slidecontent %}
+	<p>This is audio: {{ row.text }}</p>
+	<p>{% include "_soundcite.html" ignore missing %}<p>
+{% endblock %}

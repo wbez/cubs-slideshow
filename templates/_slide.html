@@ -1,0 +1,12 @@
+<div class="slide-content center-block {% if row.class%}{{ row.class }}{% endif %}">
+	<div>
+	{% block slidecontent %}
+		{% if row.text %}
+		<div class="text-alone">{{ row.text }}</div>
+		{% endif %}
+		{% if row.photocredit %}
+		<div class="photo-credit">{{row.photocredit}}{% if row.audiocredit %} | {{row.audiocredit}}{% endif %}</div>
+		{% endif %}
+	{% endblock %}
+	</div>
+</div>
